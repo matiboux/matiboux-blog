@@ -1,0 +1,38 @@
+{
+  "name": "blog.matiboux.com",
+  "author": "Matiboux",
+  "license": "UNLICENSED",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matiboux/blog.matiboux.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matiboux/blog.matiboux.com/issues"
+  },
+  "homepage": "https://github.com/matiboux/blog.matiboux.com#readme",
+  "dependencies": {
+    "@astrojs/svelte": "^5.6.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/mdi": "^1.1.67",
+    "@iconify-json/twemoji": "^1.1.15",
+    "@iconify/tailwind": "^1.1.1",
+    "astro": "^4.11.0",
+    "sass": "^1.77.6",
+    "svelte": "^4.2.18",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8"
+  }
+}

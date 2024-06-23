@@ -1,0 +1,21 @@
+---
+import { site } from '~/config'
+import type { Locales } from '~/i18n/type.d.ts'
+import Layout from '~/layouts/Layout.astro'
+
+import { i18nFactory } from '~/i18n'
+const _ = i18nFactory(Astro.currentLocale as Locales | undefined)
+---
+
+<Layout
+	bodyClass="bg-gray-100 h-screen"
+>
+
+	<h1>{site.title}</h1>
+
+	<p>{_({
+		en: 'Hello, world!',
+		fr: 'Bonjour, le monde!',
+	})}</p>
+
+</Layout>
