@@ -1,31 +1,43 @@
-import type { AstroUserConfig } from 'astro/config'
+import type { AstroConfig } from 'astro'
 
-import type Site from '~/types/Site.d.ts'
+import en from './i18n/locales/en'
+import fr from './i18n/locales/fr'
 
-export const site: Site = {
-	title: 'Matiboux Blog',
-	description: {
-		'en': 'Matiboux\'s blog about computer science and stuff.',
-		'fr': 'Blog de Matiboux sur l\'informatique et autres sujets.',
-	},
-	author: 'Matiboux',
-	themeColor: '#ffffff',
+export interface LocaleKeys
+{
+	[key: string]: LocaleKeys | string
 }
 
-export const i18n =
-{
-	defaultLocale: 'en',
-	locales: [
-		{
-			codes: ['en', 'en-US'],
-			path: 'en',
-		},
-		{
-			codes: ['fr', 'fr-FR'],
-			path: 'fr',
-		},
-	],
+export type LocalesKeys = Record<string, LocaleKeys>
+
+export type I18nConfig = AstroConfig['i18n'] & { localeKeys?: LocalesKeys }
+
+export const i18nLocales = [
+	{
+		codes: ['en', 'en_US'],
+		path: 'en',
+	},
+	{
+		codes: ['fr', 'fr_FR'],
+		path: 'fr',
+	},
+] as const satisfies I18nConfig['locales']
+
+export const i18nDefaultLocale = i18nLocales[0].path
+
+export const i18n = {
+	locales: i18nLocales,
+	defaultLocale: i18nDefaultLocale,
+	fallback: {
+		fr: 'en',
+	},
+	localeKeys: {
+		en,
+		fr,
+	},
 	routing: {
 		prefixDefaultLocale: false,
+		redirectToDefaultLocale: false,
+		fallbackType: 'rewrite',
 	},
-} as const satisfies AstroUserConfig['i18n']
+} as const satisfies I18nConfig
