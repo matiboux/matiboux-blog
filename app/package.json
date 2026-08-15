@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matiboux/blog.matiboux.com.git"
+    "url": "git+https://github.com/matiboux/matiboux-blog.git"
   },
   "bugs": {
-    "url": "https://github.com/matiboux/blog.matiboux.com/issues"
+    "url": "https://github.com/matiboux/matiboux-blog/issues"
   },
-  "homepage": "https://github.com/matiboux/blog.matiboux.com#readme",
+  "homepage": "https://github.com/matiboux/matiboux-blog#readme",
   "dependencies": {
     "@astrojs/svelte": "^5.6.0",
     "@astrojs/tailwind": "^5.1.0",
