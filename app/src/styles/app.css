@@ -83,9 +83,9 @@ ol, ul { padding-left: 2rem }
 #main .post .metadata { display: inline-block; color: #ccc; font-size: 14px }
 #main .post .metadata + .metadata { margin-left: .5em }
 #main .post .metadata + .content { margin-top: .5em }
-#main .post .categories > span, #main .post .tags > span { border-bottom: 1px dotted }
-#main .post .categories > span { color: #0cc; border-color: #0cc }
-#main .post .tags > span { color: #888; border-color: #888 }
+#main .post .categories > span:not(.icon), #main .post .tags > span:not(.icon) { border-bottom: 1px dotted }
+#main .post .categories > span:not(.icon) { color: #0cc; border-color: #0cc }
+#main .post .tags > span:not(.icon) { color: #888; border-color: #888 }
 #main .post .excerpt { margin-left: 1rem; font-size: 14px }
 #main .post .excerpt > p { margin-bottom: .5em }
 #main .post .excerpt > .click-read { color: #aaa }
