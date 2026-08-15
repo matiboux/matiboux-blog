@@ -31,9 +31,10 @@
   "homepage": "https://github.com/matiboux/matiboux-blog#readme",
   "dependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/svelte": "^9.0.1",
-    "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/fa6-solid": "^1.2.4",
+    "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/twemoji": "^1.2.5",
     "@iconify/tailwind4": "^1.2.3",
     "@tailwindcss/vite": "^4.3.3",
