@@ -7,11 +7,6 @@ import { site } from '~/site'
 
 export async function GET(context: APIContext)
 {
-	if (!context.site)
-	{
-		throw new Error('The `site` option must be set in the Astro config to generate the RSS feed.')
-	}
-
 	const posts = (await getCollection('posts'))
 		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 
@@ -20,7 +15,7 @@ export async function GET(context: APIContext)
 	return rss({
 		title: site.title ? _(site.title) : 'Matiboux Blog',
 		description: site.description ? _(site.description) : '',
-		site: context.site,
+		site: context.site ?? context.url.origin,
 		items: posts.map((post) => ({
 			title: post.data.title,
 			description: post.data.excerpt,
