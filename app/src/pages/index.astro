@@ -27,18 +27,18 @@ const dateFormatter = new Intl.DateTimeFormat(
 					<h4 class="title">&rsaquo; <a href={`/posts/${post.id}/`}>{post.data.title}</a></h4>
 
 					<p class="metadata date">
-						<i class="fas fa-calendar-day fa-fw"></i>
+						<span class="icon icon-[mdi--calendar] icon-align icon-fw"></span>
 						{dateFormatter.format(post.data.date)}
 					</p>
 					{post.data.categories.length > 0 && (
 						<p class="metadata categories">
-							<i class="fas fa-quote-left fa-fw"></i>
+							<span class="icon icon-[mdi--format-quote-open] icon-align icon-fw"></span>
 							{post.data.categories.map((category) => <span>{category}</span>)}
 						</p>
 					)}
 					{post.data.tags.length > 0 && (
 						<p class="metadata tags">
-							<i class="fas fa-tag fa-fw"></i>
+							<span class="icon icon-[mdi--tag] icon-align icon-fw"></span>
 							{post.data.tags.map((tag) => <span>{tag}</span>)}
 						</p>
 					)}

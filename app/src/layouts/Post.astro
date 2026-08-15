@@ -25,24 +25,24 @@ const dateFormatter = new Intl.DateTimeFormat(
 		<h1 class="title bg-white">{title}</h1>
 
 		<p class="metadata date">
-			<i class="fas fa-calendar-day fa-fw"></i>
+			<span class="icon icon-[mdi--calendar] icon-align icon-fw"></span>
 			{dateFormatter.format(date)}
 		</p>
 		{last_updated && (
 			<p class="metadata last-updated">
-				<i class="fas fa-pencil-alt fa-fw"></i>
+				<span class="icon icon-[mdi--pencil] icon-align icon-fw"></span>
 				{dateFormatter.format(last_updated)}
 			</p>
 		)}
 		{categories && categories.length > 0 && (
 			<p class="metadata categories">
-				<i class="fas fa-quote-left fa-fw"></i>
+				<span class="icon icon-[mdi--format-quote-open] icon-align icon-fw"></span>
 				{categories.map((category) => <span>{category}</span>)}
 			</p>
 		)}
 		{tags && tags.length > 0 && (
 			<p class="metadata tags">
-				<i class="fas fa-tag fa-fw"></i>
+				<span class="icon icon-[mdi--tag] icon-align icon-fw"></span>
 				{tags.map((tag) => <span>{tag}</span>)}
 			</p>
 		)}
