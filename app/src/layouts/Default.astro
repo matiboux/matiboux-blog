@@ -1,0 +1,31 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import type { Props as LayoutProps } from '~/layouts/Layout.astro'
+
+export interface Props extends LayoutProps {}
+
+const layoutProps: LayoutProps = Astro.props
+---
+
+<Layout {...layoutProps}>
+
+	<nav id="navbar">
+		<div>
+			<a href="/">blog.matiboux.me</a>
+			<a href="/feed.xml">RSS</a>
+			<a href="/about">about</a>
+		</div>
+		<div>
+			<a href="https://github.com/matiboux">
+				<span class="icon icon-[mdi--github] icon-align icon-fw"></span> {' '}
+				Github
+			</a>
+			<a href="https://matiboux.me">matiboux.me</a>
+		</div>
+	</nav>
+
+	<main id="main">
+		<slot />
+	</main>
+
+</Layout>

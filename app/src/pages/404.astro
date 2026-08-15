@@ -1,0 +1,19 @@
+---
+import type { Locales } from '~/i18n/types.d.ts'
+import Default from '~/layouts/Default.astro'
+
+import { i18nFactory } from '~/i18n'
+const _ = i18nFactory(Astro.currentLocale as Locales | undefined)
+
+const title = '404 Not Found'
+---
+
+<Default title={title}>
+
+	<h1 class="color-red">{title} ∕∕∕</h1>
+
+	<p>We did not find the page you were looking for.</p>
+
+	<p><a href="/" class="btn btn-dark btn-sm mb-2">[ go back to the home page ]</a></p>
+
+</Default>

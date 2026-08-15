@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content'
+
+import type { Locales } from '~/i18n/types.d.ts'
+import Default from '~/layouts/Default.astro'
+
+import { i18nFactory } from '~/i18n'
+const _ = i18nFactory(Astro.currentLocale as Locales | undefined)
+
+const posts = (await getCollection('posts'))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+const dateFormatter = new Intl.DateTimeFormat(
+	Astro.currentLocale === 'fr' ? 'fr-FR' : 'en-US',
+	{ year: 'numeric', month: 'long', day: 'numeric' },
+)
+---
+
+<Default>
+
+	<h1 id="title" class="color-blue">blog.matiboux.me ∕∕∕</h1>
+
+	<div class="posts">
+		{posts.length > 0 ? (
+			posts.map((post) => (
+				<div class="post">
+					<h4 class="title">&rsaquo; <a href={`/posts/${post.id}/`}>{post.data.title}</a></h4>
+
+					<p class="metadata date">
+						<span class="icon icon-[fa6-solid--calendar-day] icon-align icon-fw"></span> {' '}
+						{dateFormatter.format(post.data.date)}
+					</p>
+					{post.data.categories.length > 0 && (
+						<p class="metadata categories">
+							<span class="icon icon-[fa6-solid--quote-left] icon-align icon-fw"></span> {' '}
+							{post.data.categories.map((category) => <span>{category}</span>)}
+						</p>
+					)}
+					{post.data.tags.length > 0 && (
+						<p class="metadata tags">
+							<span class="icon icon-[fa6-solid--tag] icon-align icon-fw"></span> {' '}
+							{post.data.tags.map((tag) => <span>{tag}</span>)}
+						</p>
+					)}
+
+					<div class="excerpt">
+						{post.data.excerpt}
+						<p class="click-read"><a href={`/posts/${post.id}/`}>[ click to read ]</a></p>
+					</div>
+				</div>
+			))
+		) : (
+			<p>There are no posts published yet. Hopefully soon!</p>
+		)}
+	</div>
+
+</Default>
