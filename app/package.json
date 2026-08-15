@@ -39,5 +39,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.8"
+  },
+  "imports": {
+    "#global.css": "./src/styles/global.css",
+    "#tailwind.css": "./src/styles/tailwind.css"
   }
 }
