@@ -1,0 +1,50 @@
+{
+  "name": "matiboux-blog",
+  "author": "Matiboux",
+  "license": "UNLICENSED",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check --tsconfig tsconfig.prod.json",
+    "build-only": "astro build",
+    "build": "pnpm run check && pnpm run build-only",
+    "astro": "astro",
+    "astro:sync": "astro sync",
+    "astro:preview": "astro preview",
+    "test:vitest": "vitest run",
+    "test:playwright": "playwright test",
+    "npm:lockfile": "npm install --package-lock-only --ignore-scripts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matiboux/matiboux-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matiboux/matiboux-blog/issues"
+  },
+  "homepage": "https://github.com/matiboux/matiboux-blog#readme",
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/twemoji": "^1.2.5",
+    "@iconify/tailwind4": "^1.2.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.2",
+    "sass": "^1.102.0",
+    "svelte": "^5.56.9",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^24.13.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "imports": {
+    "#global.css": "./src/styles/global.css",
+    "#tailwind.css": "./src/styles/tailwind.css"
+  }
+}
