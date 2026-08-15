@@ -1,0 +1,43 @@
+---
+import Default from '~/layouts/Default.astro'
+import type { Props as DefaultProps } from '~/layouts/Default.astro'
+
+export interface Props extends DefaultProps {}
+
+const defaultProps: DefaultProps = Astro.props
+---
+
+<Default {...defaultProps}>
+
+	<div class="post">
+		<h1 class="title bg-white">{{ page.title }}</h1>
+
+		<p class="metadata date">
+			<i class="fas fa-calendar-day fa-fw"></i>
+			{{ page.date | date: "%B %e, %Y" }}
+		</p>
+		{% if page.last_updated %}
+			<p class="metadata last-updated">
+				<i class="fas fa-pencil-alt fa-fw"></i>
+				{{ page.last_updated | date: "%B %e, %Y" }}
+			</p>
+		{% endif %}
+		{% if page.categories != empty %}
+			<p class="metadata categories">
+				<i class="fas fa-quote-left fa-fw"></i>
+				<span>{{ page.categories | join: "</span> <span>" }}</span>
+			</p>
+		{% endif %}
+		{% if page.tags != empty %}
+			<p class="metadata tags">
+				<i class="fas fa-tag fa-fw"></i>
+				<span>{{ page.tags | join: "</span> <span>" }}</span>
+			</p>
+		{% endif %}
+
+		<div class="content">
+			<slot />
+		</div>
+	</div>
+
+</Default>
