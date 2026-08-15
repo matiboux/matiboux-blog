@@ -27,18 +27,21 @@
   },
   "homepage": "https://github.com/matiboux/matiboux-blog#readme",
   "dependencies": {
-    "@astrojs/svelte": "^5.6.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@iconify-json/mdi": "^1.1.67",
-    "@iconify-json/twemoji": "^1.1.15",
-    "@iconify/tailwind": "^1.1.1",
-    "astro": "^4.11.0",
-    "sass": "^1.77.6",
-    "svelte": "^4.2.18",
-    "tailwindcss": "^3.4.4"
+    "@astrojs/check": "^0.9.10",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/twemoji": "^1.2.5",
+    "@iconify/tailwind4": "^1.2.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.2",
+    "sass": "^1.102.0",
+    "svelte": "^4.2.20",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@types/node": "^20.14.8"
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^24.13.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
   },
   "imports": {
     "#global.css": "./src/styles/global.css",
