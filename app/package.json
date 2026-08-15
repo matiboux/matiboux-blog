@@ -1,7 +1,10 @@
 {
   "name": "matiboux-blog",
   "author": "Matiboux",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "config": {
+    "contentLicense": "CC-BY-4.0"
+  },
   "version": "0.0.1",
   "private": true,
   "type": "module",
