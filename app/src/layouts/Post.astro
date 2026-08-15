@@ -2,38 +2,50 @@
 import Default from '~/layouts/Default.astro'
 import type { Props as DefaultProps } from '~/layouts/Default.astro'
 
-export interface Props extends DefaultProps {}
+export interface Props extends DefaultProps
+{
+	title: string
+	date: Date
+	last_updated?: Date | undefined
+	categories?: string[] | undefined
+	tags?: string[] | undefined
+}
 
-const defaultProps: DefaultProps = Astro.props
+const { title, date, last_updated, categories, tags, ...defaultProps } = Astro.props
+
+const dateFormatter = new Intl.DateTimeFormat(
+	Astro.currentLocale === 'fr' ? 'fr-FR' : 'en-US',
+	{ year: 'numeric', month: 'long', day: 'numeric' },
+)
 ---
 
-<Default {...defaultProps}>
+<Default {...defaultProps} title={title}>
 
 	<div class="post">
-		<h1 class="title bg-white">{{ page.title }}</h1>
+		<h1 class="title bg-white">{title}</h1>
 
 		<p class="metadata date">
 			<i class="fas fa-calendar-day fa-fw"></i>
-			{{ page.date | date: "%B %e, %Y" }}
+			{dateFormatter.format(date)}
 		</p>
-		{% if page.last_updated %}
+		{last_updated && (
 			<p class="metadata last-updated">
 				<i class="fas fa-pencil-alt fa-fw"></i>
-				{{ page.last_updated | date: "%B %e, %Y" }}
+				{dateFormatter.format(last_updated)}
 			</p>
-		{% endif %}
-		{% if page.categories != empty %}
+		)}
+		{categories && categories.length > 0 && (
 			<p class="metadata categories">
 				<i class="fas fa-quote-left fa-fw"></i>
-				<span>{{ page.categories | join: "</span> <span>" }}</span>
+				{categories.map((category) => <span>{category}</span>)}
 			</p>
-		{% endif %}
-		{% if page.tags != empty %}
+		)}
+		{tags && tags.length > 0 && (
 			<p class="metadata tags">
 				<i class="fas fa-tag fa-fw"></i>
-				<span>{{ page.tags | join: "</span> <span>" }}</span>
+				{tags.map((tag) => <span>{tag}</span>)}
 			</p>
-		{% endif %}
+		)}
 
 		<div class="content">
 			<slot />
